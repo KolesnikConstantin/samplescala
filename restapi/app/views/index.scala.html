@@ -1,20 +1,32 @@
-@*
- * This template takes a single argument, a String containing a
- * message to display.
- *@
-@(message: String)
+<!DOCTYPE html>
 
-@*
- * Call the `main` template with two arguments. The first
- * argument is a `String` with the title of the page, the second
- * argument is an `Html` object containing the body of the page.
- *@
-@main("Welcome to Play") {
+<html lang="en">
+    <head>
+      <title>Github User display</title>
+      <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+      <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
+      <link href=@routes.Assets.versioned("lib/nvd3/nv.d3.css") rel="stylesheet" type="text/css">
+      <script type="text/javascript" src=@routes.Assets.versioned("lib/requirejs/require.js").url data-main=@routes.Assets.versioned("javascripts/main.js").url>
+      </script>
+      <link rel="stylesheet" href=@routes.Assets.versioned("lib/bootstrap/css/bootstrap.css") type="text/css">
+    </head>
 
-    @*
-     * Get an `Html` object by calling the built-in Play welcome
-     * template and passing a `String` message.
-     *@
-    @play20.welcome(message, style = "Scala")
+    <body>
+		<div class="container">
 
-}
+			<div class="row">
+			  <h1>Github user search</h1>
+			</div>
+
+			<div class="row">
+		  	<label>Github user: </label>
+			  <input type="text" id="user-selection">
+				<span id="searching-span"></span>
+				<hr />
+			</div>
+
+			<div id="response" class="row"></div>
+
+		</div>
+    </body>
+</html>
